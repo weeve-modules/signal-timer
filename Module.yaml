@@ -1,0 +1,61 @@
+displayName: "Signal Timer" # Display name for the module that will be displayed in the UI.
+moduleName: "signal-timer" # Module name that will be used to reference the module, and uniquely identify the module and their versions.
+description: "Monitors the input and starts a counter measuring the duration that the signal keeps or exceeds a certain value." # Module description that will be displayed in the UI.
+versionName: "v1.0.0" # Module version name that will be used to reference the module version, and uniquely identify the module version with a common name.
+isPublic: true # Boolean value that indicates if the module is Public or Private.
+categories: # Array of category that will be used to group the module in the UI.
+    - "Timer"
+type: "Processing" # Module type (Input, Processing, Output) that will be used to group the module in the UI.
+image:
+    name: "weevenetwork/signal-timer" # Image name from the docker registry.
+    tag: "latest" # Image tag from the docker registry.
+    homepage: "https://hub.docker.com/weevenetwork/module-boilerplate" # Image homepage from the docker registry.
+repository: "https://github.com/barrage/signal-timer" # Repository URL to source code.
+envs: # Array of environment variables that will be used to configure the module. Also used to show related fields on the UI.
+    - name: Input label
+      key: INPUT_LABEL
+      description: Label of the input object for the signal duration value e.g. `temperature`
+      value: "trigger_value"
+      type: "text"
+    - name: Compare Value # name of the field to be displayed on the UI.
+      key: COMPARE_VALUE # key to set in the environment variables.
+      description: Value to compare to in order to start the stopwatch # Description/helper text for the field.
+      value: "12" # Value to be set in the environment variables.
+      type: "number" # Type of the field. Possible values are: ['text', 'select', 'boolean', 'date', 'time', 'dateTime-local', 'number', 'multiple', 'CSV', 'file']
+      dependencies: [] # List of dependencies for the field. This field is only displayed if all the dependencies are met.
+    - name: Condition
+      key: CONDITION
+      description: Condition for comparing values
+      value: "No condition"
+      type: "select"
+      options:
+          - No condition
+          - (==) equal to
+          - (!=) not equal to
+          - (>) greater than
+          - (>=) greater than or equal to
+          - (<) less than
+          - (<=) less than or equal to
+      dependencies: []
+    - name: Output unit
+      key: OUTPUT_UNIT
+      description: Output data unit
+      value: "ms"
+      type: "select"
+      options:
+          - ms
+          - s
+          - min
+          - hrs
+      dependencies: []
+    - name: Output label
+      key: OUTPUT_LABEL
+      description: Label of the output object for the signal duration value e.g. `time_passed`
+      value: "time_passed"
+      type: "text"
+tags: # Array of tags.
+    - "Python"
+    - "Processing"
+    - "Signal Timer"
+    - "Signal Timer 1.0.0"
+icon: "https://some.url/to/icon.png" # Icon URL that will be displayed in the UI.

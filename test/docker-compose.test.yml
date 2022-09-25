@@ -1,0 +1,44 @@
+version: "3.0"
+networks:
+    default:
+        name: signal_timer
+services:
+    signal_timer:
+        build:
+            context: ../
+            dockerfile: docker/Dockerfile
+        container_name: signal_timer
+        ports:
+            - 80:80
+        env_file:
+            - test.env
+
+
+    listener1:
+        build:
+            context: ../
+            dockerfile: test/Dockerfile.listener
+        environment:
+            HOST: "0.0.0.0"
+            PORT: "9000"
+            OUTPUT_FILE: "/app/artifacts/listener1_output.json"
+        ports:
+            - 9000:9000
+        volumes:
+            - $PWD/test/artifacts:/app/artifacts/
+        container_name: listener1
+
+
+    listener2:
+        build:
+            context: ../
+            dockerfile: test/Dockerfile.listener
+        environment:
+            HOST: "0.0.0.0"
+            PORT: "9001"
+            OUTPUT_FILE: "/app/artifacts/listener2_output.json"
+        ports:
+            - 9001:9001
+        volumes:
+            - $PWD/test/artifacts:/app/artifacts/
+        container_name: listener2

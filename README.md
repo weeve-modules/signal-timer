@@ -4,7 +4,7 @@
 | ------------ | ---------------------------------------------------------------- |
 | name         | Python Signal Timer Processing module                            |
 | version      | v1.0.0                                                           |
-| GitHub       | [python-signal-timer-processing-module](https://github.com/barrage/signal-timer) |
+| DockerHub Link       | [weevenetwork/signal-timer](https://hub.docker.com/r/weevenetwork/signal-timer) |
 | authors      | Denis Pilon, Bruno Lipovac                                       |
 
 ***
